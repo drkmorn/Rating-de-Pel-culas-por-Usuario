@@ -1,3 +1,5 @@
+Este proyecto fue realizado en Google Colab subiendo los datos que se encuentran en la carpeta "Bases de Datos" al almacenamiento de la sesión. 
+
 # Predicción de Rating de Películas por Usuarios
 
 ## Descripción del Proyecto
@@ -14,7 +16,7 @@ Se utilizan tres conjuntos de datos principales, proporcionados en formato `.dat
 * **`users.dat`**: Información sobre los usuarios (ID de usuario, sexo, edad, ocupación, código postal).
 * **`ratings.dat`**: Calificaciones dadas por los usuarios a las películas (ID de usuario, ID de película, calificación, marca de tiempo).
 
-Se realizó un proceso de importación cuidadoso, manejando la codificación (`ISO-8859-1`) y definiendo los nombres de las columnas según la documentación externa.
+Se realizó un proceso de importación cuidadoso, obteniendo la codificación el archivo, ya que no era UTF-8 y definiendo los nombres de las columnas según la documentación externa.
 
 ## Metodología
 
@@ -25,8 +27,8 @@ El enfoque inicial del proyecto abarca las siguientes etapas:
     * Verificación exhaustiva de valores nulos y duplicados en cada conjunto de datos. Se prestó especial atención a la combinación `UserID` y `MovieID` en el conjunto de `ratings` para asegurar la unicidad.
 3.  **Limpieza de Datos:** Identificación de posibles inconsistencias en los títulos de las películas y planificación del uso de herramientas externas como OpenRefine para su estandarización.
 4.  **Modelado (Inicio):**
-    * Se exploró un enfoque de clasificación para la predicción de ratings.
-    * El código incluye el cálculo de la `accuracy_score` para los conjuntos de entrenamiento y prueba.
+    * Se exploró un enfoque de clasificación y uno de regresión mediante RandomForest para la predicción de ratings. Mostrando un pobre desempeño en los resultados de ambos modelos, pero obteniendo resultados mejores según las métricas para el modelo de Clasificación.
+    * Se intentó hacer una búsqueda de hiperparámetros mediante GridSearchCV, pero debido al costo computacional esto no se pudo lograr.
 
 ## Estado Actual y Resultados Preliminares
 
@@ -34,29 +36,7 @@ El modelo inicial muestra una `accuracy` similar tanto en el conjunto de entrena
 
 ## Próximos Pasos y Mejoras Futuras
 
-Para mejorar la robustez y el rendimiento de este proyecto, se planean las siguientes mejoras:
-
-1.  **Completar el Pipeline de Preprocesamiento:**
-    * Integrar los datos limpios de OpenRefine de vuelta al flujo de trabajo.
-    * Realizar la fusión completa de las tres bases de datos (`movies`, `users`, `ratings`).
-2.  **Ingeniería de Características Avanzada:**
-    * Transformar características categóricas (como `Gender`, `Occupation`, `Genres`) utilizando técnicas como `one-hot encoding`.
-    * Explorar el uso de la columna `Timestamp` para generar características relacionadas con el tiempo (ej. recencia).
-3.  **Selección y Optimización del Modelo:**
-    * Evaluar y justificar la elección de un modelo (ej. `RandomForestClassifier`) o considerar alternativas más adecuadas para problemas de regresión si los ratings se tratan como valores continuos.
-    * Implementar una estrategia de **sintonización de hiperparámetros** (ej. `GridSearchCV` o `RandomizedSearchCV`), incluso con muestreo de datos, para encontrar la mejor configuración del modelo (actualmente limitada por recursos computacionales).
-4.  **Métricas de Evaluación Robustas:**
-    * Utilizar métricas más apropiadas para la predicción de ratings, como el Error Cuadrático Medio (RMSE) o el Error Absoluto Medio (MAE), además del `accuracy_score`.
-    * Generar un `classification_report` completo para entender la precisión, recall y F1-score por clase si se mantiene el enfoque de clasificación.
-5.  **Exploración de Datos (EDA) y Visualizaciones:**
-    * Realizar un análisis exploratorio de datos más profundo con visualizaciones para entender las distribuciones de datos y relaciones entre variables.
-    * Visualizar los resultados del modelo y los errores de predicción.
-6.  **Modularización del Código:**
-    * Organizar el código en funciones y módulos para mejorar la legibilidad, mantenibilidad y reutilización.
-7.  **Persistencia del Modelo:**
-    * Implementar la funcionalidad para guardar y cargar el modelo entrenado.
-8.  **Funcionalidad de Predicción:**
-    * Crear una función clara para realizar predicciones sobre nuevos datos de usuario-película.
+Para mejorar la robustez y el rendimiento de este proyecto, se planetea conseguir un poder computacional mayor para hacer la búsqueda de mejores hiperparámetros
 
 ## Autor
 
