@@ -1,8 +1,3 @@
-# Predicción de Rating de Películas por Usuario
-En este proyecto se requiere realizar un modelo de Machine Learning el cual sirva para predecir cómo un usuario (con características como edad, sexo, ocupación, zip-code y un historial de películas calificadas) calificará una película que no ha visto.
-
-Este proyecto se realizó en Google Colab, para compilarlo los archivos se subieron de manera local al almacenamiento de la sesión. Las bases de datos se encuentran en la carpeta "Bases de Datos" junto con un README que explica cada uno de los datos.
-
 # Predicción de Rating de Películas por Usuarios
 
 ## Descripción del Proyecto
